@@ -1,6 +1,5 @@
 import numpy as np
 
-document_content = ""
 documents_name = []
 discrete_words = []
 documents_dictionary = {}
@@ -49,7 +48,6 @@ for document in documents_dictionary:
   counter_list = []
 
 cosine_result_dictionary = {}
-print(documents_name)
 for doc1 in range(len(documents_dictionary)):
   for doc2 in range(doc1+1, len(documents_dictionary)):
     cosine_result = cosine_similarity(common_words.get(documents_name[doc1]), common_words.get(documents_name[doc2]))
