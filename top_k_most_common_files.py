@@ -14,21 +14,19 @@ def cosine_similarity(document1, document2):
   cos = dot_product / vector_length_product
   return cos
 
-x = 0
-while x!=1:
+while True:
   try:
     number_of_documents = int(input("Enter the number of documents: "))      
     if number_of_documents < 2:
       number_of_documents = 2
-    x = 1
+      break
   except ValueError:
     print("Invalid option, please type an integer!")
 
 for i in range(number_of_documents):
-  x = 0
-  while x!=1:
+  while True:
     try:
-      temp = input("Enter the name (including file type) of document #" + str(i+1) + ": ")
+      temp = input("Enter the name (including filename extension) of document #" + str(i+1) + ": ")
       current_document = open(temp, "r")
       documents_name.append(temp)
       document_content = current_document.read().lower().split()
@@ -37,7 +35,7 @@ for i in range(number_of_documents):
           discrete_words.append(word)
       documents_dictionary.update({documents_name[i]: document_content})
       current_document.close()
-      x = 1
+      break
     except FileNotFoundError:
       print("Invalid option, file not found, try again!")
 
@@ -55,7 +53,7 @@ for doc1 in range(len(documents_dictionary)):
     cosine_result_dictionary[temp] = cosine_result
 
 max_k = len(cosine_result_dictionary)
-k = int(input("Enter the number(k) of most similar documents, you want to view: "))
+k = int(input("Enter how many(k) of the most similar documents, you want to view: "))
 if k < 1:
   k = 1
 if k > max_k:
