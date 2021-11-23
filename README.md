@@ -1,2 +1,2 @@
-# python-gems
-machine learning (or maybe scripting)
+# cosine-similarity
+A simple implementation of document similarity in Python
